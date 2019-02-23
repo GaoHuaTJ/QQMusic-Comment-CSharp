@@ -1,5 +1,5 @@
-# QQMusic-
-QQ音乐评论爬虫C#版
+# QQMusic-Comment-CSharp
+QQ音乐评论爬虫C#版(安装chrome浏览器)
 本项目主要是是利用selenium和chrome来爬取qq音乐的精彩评论
 ## 使用方法
 主要使用到了：
@@ -44,3 +44,6 @@ QQ音乐评论爬虫C#版
 ![Image text](https://github.com/GaoHuaTJ/QQMusic-Comment-CSharp/blob/master/%E5%9B%BE%E7%89%87/%E5%A4%8D%E5%88%B6%E8%BF%9E%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2.png)
 
 将上述的字符串对应修改即可
+
+
+## 有问题可以联系作者（vx:15301768939 email:qidaxiang66@163.com）
