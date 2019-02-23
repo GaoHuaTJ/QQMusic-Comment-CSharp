@@ -24,7 +24,7 @@ QQ音乐评论爬虫C#版(安装chrome浏览器)
 ### 为了方便项目的使用，将数据库上传（csv，excel，access版本）
 1、 采用sql server首先新建一个数据库，叫做QQMusicComment
 2、导入数据库（access版本）
-![Image text](https://github.com/GaoHuaTJ/QQMusic-Comment-CSharp/blob/master/%E5%9B%BE%E7%89%87/%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E5%BA%93.png)
+![Image text](https://github.com/GaoHuaTJ/QQMusic-Comment-CSharp/blob/master/%E5%9B%BE%E7%89%87/%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE%E8%BF%87%E7%A8%8B.png)
 
 ![Image text](https://github.com/GaoHuaTJ/QQMusic-Comment-CSharp/blob/master/%E5%9B%BE%E7%89%87/%E9%80%89%E6%8B%A9%E5%AF%BC%E5%85%A5%E5%BC%95%E6%93%8E.png)
 
