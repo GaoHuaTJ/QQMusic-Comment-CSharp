@@ -7,11 +7,17 @@ using HtmlAgilityPack;
 using System.Data.SqlClient;
 namespace QQMusic
 {
+    /// <summary>
+    /// html解析和数据库的连接
+    /// </summary>
     class HtmlParse
     {
-
-
-        public void GetContent(string path)
+        public HtmlParse(string songName)
+        {
+            _song = songName;
+        }
+        public string _song;
+        public void GetContent(string path)//解析文本内容
         {
             var users= GetContents(path, "//h4[@class='comment__title']");
             var dates = GetContents(path, "//span[@class='comment__date c_tx_thin']");
@@ -22,22 +28,21 @@ namespace QQMusic
             {
                 try
                 {
-                    string sql = string.Format("INSERT INTO dbo.不能说的秘密(ID, 用户名,评论,评论时间,赞)VALUES({0},'{1}','{2}','{3}','{4}')", i, users[i], comments[i], dates[i], agree[i]);
+                    string sql = string.Format("INSERT INTO dbo.周杰伦(歌名,用户名,评论,评论时间,赞)VALUES('{0}','{1}','{2}','{3}','{4}')",_song,users[i], comments[i], dates[i], agree[i]);
                     ConnectAccess(sql);
                 }
                 catch
-                {break;}
+                {continue;}
             }
             Console.ReadKey();
-    
             }
-        public List<string> GetContents(string path,string Xpath)
+        public List<string> GetContents(string path,string Xpath)//文本内容存入集合
         {
                 List<string> Contents = new List<string> { };
                 var htmlNodes = GetNodes(path, Xpath);
                 if (htmlNodes != null)
                 {
-                    foreach (var item1 in htmlNodes)//检索评论
+                    foreach (var item1 in htmlNodes)
                     {
                         var Content = item1.InnerText;
                         Contents.Add(Content);
@@ -45,14 +50,14 @@ namespace QQMusic
                 }
             return Contents;
         }
-        public HtmlNodeCollection GetNodes(string path,string Xpath)
+        public HtmlNodeCollection GetNodes(string path,string Xpath)//html节点集合
         {
             HtmlDocument html = new HtmlDocument();
             html.Load(path, Encoding.UTF8);//加载html文件
             HtmlNodeCollection htmlNodes = html.DocumentNode.SelectNodes(Xpath);
             return htmlNodes;
         }
-        public void ConnectAccess(string Sql)
+        public void ConnectAccess(string Sql)//数据库连接和sql执行
         {
             string Conn = string.Format("Data Source=DESKTOP-49O35N0;Initial Catalog=C#练习使用;Integrated Security=True");
             SqlConnection sqlConnection = new SqlConnection(Conn);
