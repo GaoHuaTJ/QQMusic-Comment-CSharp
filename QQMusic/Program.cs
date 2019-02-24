@@ -15,9 +15,9 @@ namespace QQMusic
         {
             //实例化歌名类
             Song daoXiang = new Song();
-            daoXiang.SingerName = "周杰伦";
-            daoXiang.Name = "牛仔很忙";
-            daoXiang.NameUrl = "https://y.qq.com/n/yqq/song/003O5GaP1SYe94.html";
+            daoXiang.SingerName = "林俊杰";
+            daoXiang.Name = "她说";
+            daoXiang.NameUrl = "https://y.qq.com/n/yqq/song/0009n8YD3Nh2rR.html";
             var page=daoXiang.CreatDriver();//输出当前网址的源码
             var path=daoXiang.GetHtmlFold(page);//输出网页源码的txt地址
    
@@ -25,7 +25,5 @@ namespace QQMusic
             HtmlParse htmlParse = new HtmlParse(daoXiang.Name,daoXiang.SingerName);
             htmlParse.GetContent(path);
         }
-
-
     } 
 }
