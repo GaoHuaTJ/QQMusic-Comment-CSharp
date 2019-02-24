@@ -14,7 +14,7 @@ namespace QQMusic
     {
         public string Name { set; get; }//歌名属性
         public string NameUrl { set; get; }//网址属性
-        public string SingerName { set; get; }//歌手名属性
+        public string SingerName { set; get; }//歌手名属性，在数据库直接作为表名使用
 
 
         /// <summary>
