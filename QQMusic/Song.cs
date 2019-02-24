@@ -14,6 +14,8 @@ namespace QQMusic
     {
         public string Name { set; get; }//歌名属性
         public string NameUrl { set; get; }//网址属性
+        public string SingerName { set; get; }//歌手名属性
+
 
         /// <summary>
         /// 输入网址，返回当前网址的源码
@@ -45,7 +47,6 @@ namespace QQMusic
             IJavaScriptExecutor js = (IJavaScriptExecutor)chromeDriver;//页面滑倒最低端
             string title = (string)js.ExecuteScript("window.scrollTo(0,document.body.scrollHeight)");
             var page = chromeDriver.PageSource;
-
             return page;
         }
 

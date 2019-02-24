@@ -12,11 +12,13 @@ namespace QQMusic
     /// </summary>
     class HtmlParse
     {
-        public HtmlParse(string songName)
+        public HtmlParse(string songName,string singerName)
         {
-            _song = songName;
+            _Song = songName;
+            _SingerName = singerName;
         }
-        public string _song;
+        string _Song;
+        string _SingerName;
         public void GetContent(string path)//解析文本内容
         {
             var users= GetContents(path, "//h4[@class='comment__title']");
@@ -28,7 +30,13 @@ namespace QQMusic
             {
                 try
                 {
-                    string sql = string.Format("INSERT INTO dbo.周杰伦(歌名,用户名,评论,评论时间,赞)VALUES('{0}','{1}','{2}','{3}','{4}')",_song,users[i], comments[i], dates[i], agree[i]);
+                    string sql = string.Format("INSERT INTO dbo.{0}(歌名,用户名,评论,评论时间,赞)VALUES('{1}','{2}','{3}','{4}','{5}')",
+                        _SingerName,
+                        _Song,
+                        users[i], 
+                        comments[i], 
+                        dates[i], 
+                        agree[i]);
                     ConnectAccess(sql);
                 }
                 catch
